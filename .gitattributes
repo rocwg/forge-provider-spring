@@ -1,0 +1,18 @@
+# Global defaults
+* text=auto
+
+# Source code
+*.java        text eol=lf
+
+# Config / resource files
+*.xml         text eol=lf
+*.yml         text eol=lf
+*.yaml        text eol=lf
+*.config      text eol=lf
+*.properties  text eol=lf
+
+# Shell scripts (must be LF on Linux)
+*.sh          text eol=lf
+
+# Doc markdown
+*.md          text eol=lf
