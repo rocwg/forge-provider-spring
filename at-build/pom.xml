@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.1.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>io.github.rocwg</groupId>
+	<artifactId>at-build</artifactId>
+	<packaging>pom</packaging>
+	<version>${revision}</version>
+
+	<!-- 配置版本号 -->
+	<properties>
+		<revision>1.0.0-SNAPSHOT</revision>
+		<spring-boot.version>4.1.0</spring-boot.version>
+
+		<!-- 插件版本 -->
+		<maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
+		<flatten-maven-plugin.version>1.7.3</flatten-maven-plugin.version>
+	</properties>
+
+	<!-- 外部三方件：版本集中管理 -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- Lombok：编译期工具 -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+
+			<!-- 基础插件 -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>${flatten-maven-plugin.version}</version>
+				<configuration>
+					<flattenMode>resolveCiFriendliesOnly</flattenMode>
+					<updatePomFile>true</updatePomFile>
+				</configuration>
+				<executions>
+					<execution>
+						<id>flatten</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>flatten-clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
