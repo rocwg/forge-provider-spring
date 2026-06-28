@@ -2,43 +2,71 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>io.github.rocwg</groupId>
-        <artifactId>at-build</artifactId>
-        <version>${revision}</version>
-        <relativePath>./at-build/pom.xml</relativePath>
-    </parent>
+	<modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jaro-samples-grpc</artifactId>
-    <packaging>pom</packaging>
+	<!-- ========================= -->
+	<!-- Parent: boot-parent -->
+	<!-- ========================= -->
+	<parent>
+		<groupId>io.github.rocwg</groupId>
+		<artifactId>boot-parent</artifactId>
+		<version>${revision}</version>
+		<relativePath>boot-parent/pom.xml</relativePath>
+	</parent>
 
-    <modules>
-        <module>grpc-api-contract</module>
-        <module>grpc-client</module>
-        <module>grpc-server</module>
-    </modules>
+	<!-- ========================= -->
+	<!-- Project -->
+	<!-- ========================= -->
+	<artifactId>jaro-samples-grpc</artifactId>
+	<packaging>pom</packaging>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.github.rocwg</groupId>
-                <artifactId>grpc-api-contract</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+	<name>jaro-samples-grpc</name>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+	<!-- ========================= -->
+	<!-- Modules -->
+	<!-- ========================= -->
+	<modules>
+		<module>grpc-server</module>
+		<module>grpc-client</module>
+	</modules>
+
+	<!-- ========================= -->
+	<!-- Dependency Management（项目级） -->
+	<!-- ========================= -->
+	<dependencyManagement>
+		<dependencies>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- ========================= -->
+	<!-- Plugin Management（项目插件） -->
+	<!-- ========================= -->
+	<build>
+
+		<pluginManagement>
+
+			<plugins>
+				<!-- Spring Boot plugin -->
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+
+				<!-- Compiler -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<release>${maven.compiler.release}</release>
+						<!-- Keep Java parameter names -->
+						<parameters>true</parameters>
+					</configuration>
+				</plugin>
+			</plugins>
+
+		</pluginManagement>
+
+	</build>
+
 </project>

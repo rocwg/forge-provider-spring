@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ========================= -->
+	<!-- Spring Boot Parent -->
+	<!-- ========================= -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.1.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<!-- ========================= -->
+	<!-- Project Identity -->
+	<!-- ========================= -->
+	<groupId>io.github.rocwg</groupId>
+	<artifactId>boot-parent</artifactId>
+	<version>${revision}</version>
+
+	<packaging>pom</packaging>
+
+	<name>boot-parent</name>
+
+	<!-- ========================= -->
+	<!-- Properties -->
+	<!-- ========================= -->
+	<properties>
+		<!-- revision: CI Friendly Version -->
+		<revision>1.0.0-SNAPSHOT</revision>
+
+		<!-- Java -->
+		<java.version>21</java.version>
+		<maven.compiler.release>${java.version}</maven.compiler.release>
+
+		<!-- Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<!-- ========================= -->
+	<!-- Dependency Management -->
+	<!-- 外部三方件：版本集中管理 -->
+	<!-- ========================= -->
+	<dependencyManagement>
+		<dependencies>
+			<!--
+			Intentionally kept minimal.
+			Spring Boot already manages almost all common dependency versions.
+			Only dependencies NOT managed by Spring Boot should be added here.
+			-->
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- ========================= -->
+	<!-- Build Rules -->
+	<!-- ========================= -->
+	<build>
+
+		<plugins>
+
+			<!-- Always Execute -->
+			<!-- Flatten (CI friendly version resolve) -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>flatten-maven-plugin</artifactId>
+				<version>1.7.3</version>
+
+				<configuration>
+					<flattenMode>resolveCiFriendliesOnly</flattenMode>
+					<updatePomFile>true</updatePomFile>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>flatten</id>
+						<phase>package</phase>
+						<goals>
+							<goal>flatten</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>flatten-clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>
