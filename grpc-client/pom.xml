@@ -23,7 +23,7 @@
 		<!-- Contract -->
 		<dependency>
 			<groupId>io.github.rocwg</groupId>
-			<artifactId>grpc-contract</artifactId>
+			<artifactId>grpc-contracts</artifactId>
 		</dependency>
 
 		<!-- Spring Boot Core -->
@@ -51,4 +51,14 @@
 		</plugins>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>local-snapshots</id>
+			<url>file://${user.home}/.m2/repository</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>

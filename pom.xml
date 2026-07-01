@@ -36,6 +36,11 @@
 	<!-- ========================= -->
 	<dependencyManagement>
 		<dependencies>
+			<dependency>
+				<groupId>io.github.rocwg</groupId>
+				<artifactId>grpc-contracts</artifactId>
+				<version>1.0.5</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

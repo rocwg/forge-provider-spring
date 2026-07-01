@@ -1,5 +1,6 @@
 package org.springframework.grpc.sample;
 
+import io.github.rocwg.grpc.contract.hello.v1.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Service;

@@ -27,7 +27,7 @@
 		<!-- contract -->
 		<dependency>
 			<groupId>io.github.rocwg</groupId>
-			<artifactId>grpc-contract</artifactId>
+			<artifactId>grpc-contracts</artifactId>
 		</dependency>
 
 		<!-- spring boot -->

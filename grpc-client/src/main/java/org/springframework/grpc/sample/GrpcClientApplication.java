@@ -1,12 +1,12 @@
 package org.springframework.grpc.sample;
 
+import io.github.rocwg.grpc.contract.hello.v1.HelloServiceGrpc;
+import io.github.rocwg.grpc.contract.hello.v1.SayHelloRequest;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.grpc.client.ImportGrpcClients;
-import org.springframework.grpc.sample.proto.HelloRequest;
-import org.springframework.grpc.sample.proto.SimpleGrpc;
 
 @SpringBootApplication
 @ImportGrpcClients
@@ -17,9 +17,9 @@ public class GrpcClientApplication {
 	}
 
 	@Bean
-	public CommandLineRunner runner(SimpleGrpc.SimpleBlockingStub stub) {
+	public CommandLineRunner runner(HelloServiceGrpc.HelloServiceBlockingStub stub) {
 		return args -> {
-			System.out.println(stub.sayHello(HelloRequest.newBuilder().setName("Alien").build()));
+			System.out.println(stub.sayHello(SayHelloRequest.newBuilder().setName("Alien").build()));
 		};
 	}
 
