@@ -2,6 +2,8 @@ package org.springframework.grpc.sample;
 
 import io.github.rocwg.grpc.contract.hello.v1.HelloServiceGrpc;
 import io.github.rocwg.grpc.contract.hello.v1.SayHelloRequest;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,15 +14,30 @@ import org.springframework.grpc.client.ImportGrpcClients;
 @ImportGrpcClients
 public class GrpcClientApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GrpcClientApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GrpcClientApplication.class, args);
+    }
 
-	@Bean
-	public CommandLineRunner runner(HelloServiceGrpc.HelloServiceBlockingStub stub) {
-		return args -> {
-			System.out.println(stub.sayHello(SayHelloRequest.newBuilder().setName("Alien").build()));
-		};
-	}
+    @Bean
+    public ManagedChannel channel() {
+        return ManagedChannelBuilder
+            .forAddress("localhost", 9090)
+            .usePlaintext()
+            .build();
+    }
+
+    @Bean
+    public HelloServiceGrpc.HelloServiceBlockingStub stub(ManagedChannel channel) {
+        return HelloServiceGrpc.newBlockingStub(channel);
+    }
+
+    @Bean
+    public CommandLineRunner runner(
+        HelloServiceGrpc.HelloServiceBlockingStub stub
+    ) {
+        return args -> {
+            System.out.println(stub.sayHello(SayHelloRequest.newBuilder().setName("Alien").build()));
+        };
+    }
 
 }

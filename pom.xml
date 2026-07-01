@@ -39,7 +39,7 @@
 			<dependency>
 				<groupId>io.github.rocwg</groupId>
 				<artifactId>grpc-contracts</artifactId>
-				<version>1.0.5</version>
+				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -63,7 +63,7 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<configuration>
-						<release>${maven.compiler.release}</release>
+						<release>${java.version}</release>
 						<!-- Keep Java parameter names -->
 						<parameters>true</parameters>
 					</configuration>
