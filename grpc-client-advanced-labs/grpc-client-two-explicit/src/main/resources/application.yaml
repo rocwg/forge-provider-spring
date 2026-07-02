@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: grpc-client
+  grpc:
+    client:
+      channel:
+        #################################################################
+        #default: # 这是一个特殊的保底 Key
+        #  target: "static://0.0.0.0:${launched.grpc.port:9090}"
+        #################################################################
+        # 通道1：对应 Hello 服务的地址
+        hello-service:
+          target: "static://localhost:9090"
+        # 通道2：对应认证服务的地址（即便现在相同，生产也往往不同）
+        authentication-service:
+          target: "static://localhost:9090"
+
+logging:
+  level:
+    # 监控 Spring gRPC 客户端通道工厂的创建与逻辑映射行为
+    org.springframework.grpc.client: debug
+    # 监控底层的 gRPC 管理通道和 NameResolver 解析目标地址的行为
+    io.grpc: debug
+    io.grpc.Context: info # 屏蔽过多的上下文上下文日志

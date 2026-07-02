@@ -29,6 +29,7 @@
 	<modules>
 		<module>grpc-server</module>
 		<module>grpc-client</module>
+		<module>grpc-client-advanced-labs</module>
 	</modules>
 
 	<!-- ========================= -->
