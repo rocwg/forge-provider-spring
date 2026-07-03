@@ -1,7 +1,7 @@
 package org.springframework.grpc.sample;
 
-import io.github.rocwg.grpc.contract.hello.v1.HelloServiceGrpc;
-import io.github.rocwg.grpc.contract.hello.v1.SayHelloRequest;
+import io.github.rocwg.grpc.contracts.hello.v1.HelloServiceGrpc;
+import io.github.rocwg.grpc.contracts.hello.v1.SayHelloRequest;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.springframework.boot.CommandLineRunner;

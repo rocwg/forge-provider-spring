@@ -1,7 +1,7 @@
 package org.springframework.grpc.sample.client;
 
-import io.github.rocwg.contract.iam.v1.AuthenticationServiceGrpc;
-import io.github.rocwg.grpc.contract.hello.v1.HelloServiceGrpc;
+import io.github.rocwg.grpc.contracts.hello.v1.HelloServiceGrpc;
+import io.github.rocwg.grpc.contracts.iam.v1.AuthenticationServiceGrpc;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.grpc.client.ImportGrpcClients;
 

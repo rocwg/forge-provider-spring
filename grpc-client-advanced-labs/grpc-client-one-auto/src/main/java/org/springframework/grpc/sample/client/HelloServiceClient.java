@@ -1,8 +1,8 @@
 package org.springframework.grpc.sample.client;
 
-import io.github.rocwg.grpc.contract.hello.v1.HelloServiceGrpc;
-import io.github.rocwg.grpc.contract.hello.v1.SayHelloRequest;
-import io.github.rocwg.grpc.contract.hello.v1.SayHelloResponse;
+import io.github.rocwg.grpc.contracts.hello.v1.HelloServiceGrpc;
+import io.github.rocwg.grpc.contracts.hello.v1.SayHelloRequest;
+import io.github.rocwg.grpc.contracts.hello.v1.SayHelloResponse;
 import io.grpc.StatusRuntimeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

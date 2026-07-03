@@ -1,8 +1,8 @@
 package org.springframework.grpc.sample.client;
 
-import io.github.rocwg.contract.iam.v1.AuthenticationServiceGrpc;
-import io.github.rocwg.contract.iam.v1.LoginRequest;
-import io.github.rocwg.contract.iam.v1.LoginResponse;
+import io.github.rocwg.grpc.contracts.iam.v1.AuthenticationServiceGrpc;
+import io.github.rocwg.grpc.contracts.iam.v1.LoginRequest;
+import io.github.rocwg.grpc.contracts.iam.v1.LoginResponse;
 import io.grpc.StatusRuntimeException;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
