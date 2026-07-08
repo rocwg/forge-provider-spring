@@ -1,4 +1,4 @@
-package org.springframework.grpc.sample;
+package org.springframework.grpc.provider;
 
 import io.github.rocwg.grpc.contracts.hello.v1.*;
 import org.apache.commons.logging.Log;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import io.grpc.stub.StreamObserver;
 
 @Service
-public class GrpcServerService extends HelloServiceGrpc.HelloServiceImplBase {
+public class HelloService extends HelloServiceGrpc.HelloServiceImplBase {
 
-	private static Log log = LogFactory.getLog(GrpcServerService.class);
+	private static Log log = LogFactory.getLog(HelloService.class);
 
 	@Override
 	public void sayHello(SayHelloRequest req, StreamObserver<SayHelloResponse> responseObserver) {

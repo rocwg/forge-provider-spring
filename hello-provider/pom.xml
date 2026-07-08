@@ -10,14 +10,12 @@
 	<!-- ========================= -->
 	<parent>
 		<groupId>io.github.rocwg</groupId>
-		<artifactId>jaro-samples-grpc</artifactId>
+		<artifactId>forge-provider-spring</artifactId>
 		<version>${revision}</version>
 	</parent>
 
-	<artifactId>grpc-server</artifactId>
+	<artifactId>hello-provider</artifactId>
 	<packaging>jar</packaging>
-
-	<name>grpc-server</name>
 
 	<!-- ========================= -->
 	<!-- Dependencies -->

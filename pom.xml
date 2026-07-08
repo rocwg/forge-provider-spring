@@ -18,16 +18,16 @@
 	<!-- ========================= -->
 	<!-- Project -->
 	<!-- ========================= -->
-	<artifactId>jaro-samples-grpc</artifactId>
+	<artifactId>forge-provider-spring</artifactId>
 	<packaging>pom</packaging>
 
-	<name>jaro-samples-grpc</name>
+	<name>forge-provider-spring</name>
 
 	<!-- ========================= -->
 	<!-- Modules -->
 	<!-- ========================= -->
 	<modules>
-		<module>grpc-server</module>
+		<module>hello-provider</module>
 		<module>grpc-client</module>
 		<module>grpc-client-advanced-labs</module>
 	</modules>

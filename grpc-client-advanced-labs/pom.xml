@@ -7,7 +7,7 @@
 
 	<parent>
 		<groupId>io.github.rocwg</groupId>
-		<artifactId>jaro-samples-grpc</artifactId>
+		<artifactId>forge-provider-spring</artifactId>
 		<version>${revision}</version>
 	</parent>
 
